@@ -7,14 +7,15 @@ def deleteDuplication(lList):
   while (n.next != None):
     temp.append(n.data)
     if (n.next.data in temp):
-      if (n.next.next != None):
+      while (n.next != None and n.next.data in temp):
         n.next = n.next.next
-      else:
-        n.next = None
+      if (n.next == None):
         break
-    n = n.next
-
+      n = n.next
+    else:
+      n = n.next
   return lList
+  
 
 myHeadNode = linkedList.Node(1)
 myHeadNode.appendToTail(2)
